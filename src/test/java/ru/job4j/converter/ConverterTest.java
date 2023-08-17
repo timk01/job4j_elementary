@@ -22,8 +22,8 @@ class ConverterTest {
         float in = 140;
         float expected = 2.2F;
         float out = Converter.rubleToEuro(in);
-        float offset = 0.000_0001f;
-        assertNotEquals(expected, out, offset);
+        float eps = 0.000_0001f;
+        assertThat(out).isNotCloseTo(expected, withPrecision(eps));
     }
 
     @Test
@@ -36,21 +36,21 @@ class ConverterTest {
     }
 
     @Test
-    void convertRubleToDollarFail() {
-        float in = 180;
-        float expected = 3.5F;
-        float out = Converter.rubleToDollar(in);
-        float offset = 0.000_0001f;
-        assertNotEquals(expected, out, offset);
-    }
-
-    @Test
     void convertRubleOfValue0ToDollarSuccess() {
         float in = 0;
         float expected = 0;
         float out = Converter.rubleToDollar(in);
         float eps = 0.000_0001f;
         assertThat(out).isEqualTo(expected, withPrecision(eps));
+    }
+
+    @Test
+    void convertRubleToDollarFail() {
+        float in = 180;
+        float expected = 3.5F;
+        float out = Converter.rubleToDollar(in);
+        float eps = 0.000_0001f;
+        assertThat(out).isNotCloseTo(expected, withPrecision(eps));
     }
 
     @Test
