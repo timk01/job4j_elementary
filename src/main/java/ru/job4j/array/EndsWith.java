@@ -5,12 +5,11 @@ public class EndsWith {
         if (word.length < post.length) {
             return false;
         }
-        boolean result = true;
         for (int i = 0; i < post.length; i++) {
             if (word[word.length - 1 - i] != post[post.length - 1 - i]) {
                 return false;
             }
         }
-        return result;
+        return true;
     }
 }
