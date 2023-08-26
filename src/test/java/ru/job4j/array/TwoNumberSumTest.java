@@ -46,7 +46,7 @@ class TwoNumberSumTest {
         int[] array = {0, 2, 5, 8, 10, -12};
         int target = -10;
         int[] result = TwoNumberSum.getIndexes(array, target);
-        int[] expected = {0, 4};
+        int[] expected = {1, 5};
         assertThat(result).isEqualTo(expected);
     }
 }
