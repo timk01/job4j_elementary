@@ -12,14 +12,12 @@ public class Point {
         int y2 = 0;
         double result = Point.distance(x1, y1, x2, y2);
         System.out.println("result (" + x1 + "," + y1 + ") to (" + x2 + "," + y2 + ") " + result);
-
         x1 = -2;
         y1 = 2;
         x2 = 4;
         y2 = 9;
         result = distance(x1, y1, x2, y2);
         System.out.printf("distance between points (%d, %d) and (%d, %d) is %.5f%n", x1, y1, x2, y2, result);
-
         x1 = 2;
         y1 = 0;
         x2 = -4;

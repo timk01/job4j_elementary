@@ -2,8 +2,8 @@ package ru.job4j.condition;
 
 public class TrgArea {
     public static double area(double a, double b, double c) {
-        double halfPerimeter = (a + b + c) / 2;
-        return Math.sqrt(halfPerimeter * (halfPerimeter - a) * (halfPerimeter - b) * (halfPerimeter - c));
+        double half = (a + b + c) / 2;
+        return Math.sqrt(half * (half - a) * (half - b) * (half - c));
     }
 
     public static void main(String[] args) {

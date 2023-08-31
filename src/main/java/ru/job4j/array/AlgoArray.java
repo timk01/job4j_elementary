@@ -2,21 +2,17 @@ package ru.job4j.array;
 
 public class AlgoArray {
     public static void main(String[] args) {
-        int[] array = new int[] {5, 3, 2, 1, 4};
-
-        int temp = array[0];
-        array[0] = array[3];
-        array[3] = temp;
-
-        temp = array[1];
-        array[1] = array[2];
-        array[2] = temp;
-
-        temp = array[3];
-        array[3] = array[4];
-        array[4] = temp;
-
-        for (int i : array) {
+        int[] numbers = new int[] {5, 3, 2, 1, 4};
+        int temp = numbers[0];
+        numbers[0] = numbers[3];
+        numbers[3] = temp;
+        temp = numbers[1];
+        numbers[1] = numbers[2];
+        numbers[2] = temp;
+        temp = numbers[3];
+        numbers[3] = numbers[4];
+        numbers[4] = temp;
+        for (int i : numbers) {
             System.out.println(i);
         }
     }

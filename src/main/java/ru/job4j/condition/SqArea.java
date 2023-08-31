@@ -8,12 +8,12 @@ public class SqArea {
     }
 
     public static void main(String[] args) {
-        double rectangleSquare = SqArea.square(4, 1);
-        System.out.println(" p = 4, k = 1, s = 1, real = " + rectangleSquare);
+        double square = SqArea.square(4, 1);
+        System.out.println(" p = 4, k = 1, s = 1, real = " + square);
         double perimeter = 6;
         double coefficient = 2;
-        rectangleSquare = square(perimeter, coefficient);
+        square = square(perimeter, coefficient);
         System.out.printf("with perimeter = %.5f and coefficient = %.5f, rectangle square is = %.5f",
-                perimeter, coefficient, rectangleSquare);
+                perimeter, coefficient, square);
     }
 }
