@@ -9,10 +9,8 @@ public class SimpleStringEncoder {
         for (int i = 1; i < input.length(); i++) {
             if (input.charAt(i) == symbol) {
                 counter++;
-            } else if (counter == 1) {
-                result += "" + symbol;
             } else {
-                result += "" + symbol + counter;
+                result = counter == 1 ? result + symbol : result + symbol + counter;
                 counter = 1;
             }
             symbol = input.charAt(i);
