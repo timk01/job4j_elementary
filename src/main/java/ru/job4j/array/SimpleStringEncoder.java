@@ -9,11 +9,15 @@ public class SimpleStringEncoder {
             if (input.charAt(i) == symbol) {
                 counter++;
             } else {
-                result = counter == 1 ? result + symbol : result + symbol + counter;
+                result = getResult(counter, result, symbol);
+                symbol = input.charAt(i);
                 counter = 1;
             }
-            symbol = input.charAt(i);
         }
+        return getResult(counter, result, symbol);
+    }
+
+    private static String getResult(int counter, String result, char symbol) {
         return counter == 1 ? result + symbol : result + symbol + counter;
     }
 }
