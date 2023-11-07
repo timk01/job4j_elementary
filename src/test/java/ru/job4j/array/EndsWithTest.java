@@ -24,7 +24,7 @@ public class EndsWithTest {
     public void whenEndWithPrefixAndPrefixIsBiggerThanWordThenFalse() {
         char[] word = {'H', 'e', 'l'};
         char[] pref = {'H', 'e', 'H', 'e', 'l'};
-        boolean result = ArrayChar.startsWith(word, pref);
+        boolean result = EndsWith.endsWith(word, pref);
         assertThat(result).isFalse();
     }
 
@@ -32,7 +32,7 @@ public class EndsWithTest {
     public void whenNotEndWithPrefixAndPrefixIsBiggerThanWordThenFalse() {
         char[] word = {'L', 'o'};
         char[] pref = {'H', 'e', 'l', 'l', 'o'};
-        boolean result = ArrayChar.startsWith(word, pref);
+        boolean result = EndsWith.endsWith(word, pref);
         assertThat(result).isFalse();
     }
 }
