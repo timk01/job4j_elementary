@@ -70,4 +70,5 @@ public class FitTest {
                 Arguments.of((short) 150, 46.0)
         );
     }
+
 }
