@@ -82,7 +82,7 @@ class X2Test {
         assertThat(X2.calc(a, b, c, x)).isEqualTo(expected);
     }
 
-    static Stream<Arguments> methodTestData(){
+    static Stream<Arguments> methodTestData() {
         return Stream.of(
                 Arguments.of(10, 0, 0, 2, 40),
                 Arguments.of(1, 1, 1, 1, 3),

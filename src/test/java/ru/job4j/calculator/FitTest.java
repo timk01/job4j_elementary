@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.withPrecision;
@@ -13,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class FitTest {
 
     private static final double DEFAULT_PRECISION = 0.0001;
+
     @Test
     public void whenManHeight187ThenWeight10035() {
         short height = 187;
