@@ -2,7 +2,11 @@ package ru.job4j.condition;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -70,5 +74,21 @@ class X2Test {
     void whenSeriesOfParamsThenResult(int a, int b, int c, int x, int expected) {
         int result = X2.calc(a, b, c, x);
         assertThat(result).isEqualTo(expected);
+    }
+
+    @ParameterizedTest
+    @MethodSource("methodTestData")
+    void whenSeriesOfParamsThenResult2(int a, int b, int c, int x, int expected) {
+        assertThat(X2.calc(a, b, c, x)).isEqualTo(expected);
+    }
+
+    static Stream<Arguments> methodTestData(){
+        return Stream.of(
+                Arguments.of(10, 0, 0, 2, 40),
+                Arguments.of(1, 1, 1, 1, 3),
+                Arguments.of(0, 1, 1, 1, 2),
+                Arguments.of(1, 1, 0, 1, 2),
+                Arguments.of(1, 1, 1, 0, 1)
+        );
     }
 }
