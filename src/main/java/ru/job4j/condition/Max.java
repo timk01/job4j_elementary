@@ -13,4 +13,8 @@ public class Max {
     public static int max(int first, int second, int third, int fourth) {
         return max(max(first, second, third), fourth);
     }
+
+    public static int maxThreeAlternative(int first, int second, int third) {
+        return Math.max(third, Math.max(first, second));
+    }
 }
