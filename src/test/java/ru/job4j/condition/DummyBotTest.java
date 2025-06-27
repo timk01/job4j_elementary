@@ -1,6 +1,12 @@
 package ru.job4j.condition;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 class DummyBotTest {
@@ -27,5 +33,19 @@ class DummyBotTest {
         String result = DummyBot.answer(in);
         String expected = "I don't know. Please, ask another question.";
         assertThat(result).isEqualTo(expected);
+    }
+
+    @ParameterizedTest
+    @MethodSource("simpleQuestionsAndAnswers")
+    void differentCommands(String question, String answer) {
+        assertThat(DummyBot.answer(question)).isEqualTo(answer);
+    }
+
+    static Stream<Arguments> simpleQuestionsAndAnswers() {
+        return Stream.of(
+                Arguments.of("Hi, Bot.", "Hi, SmartAss."),
+                Arguments.of("Bye.", "See you later."),
+                Arguments.of("Can you add two plus two?", "I don't know. Please, ask another question.")
+        );
     }
 }
