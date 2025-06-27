@@ -14,16 +14,16 @@ public class LogicNot {
         return !isEven(num);
     }
 
-    public static boolean notPositive(int num) {
-        return !isPositive(num);
+    public static boolean isNegative(int num) {
+        return num != 0 && !isPositive(num);
     }
 
     public static boolean notEvenAndPositive(int num) {
         return notEven(num) && isPositive(num);
     }
 
-    public static boolean evenOrNotPositive(int num) {
-        return isEven(num) || notPositive(num);
+    public static boolean evenOrNegative(int num) {
+        return isEven(num) || isNegative(num);
     }
 
 }
