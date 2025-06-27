@@ -1,6 +1,12 @@
 package ru.job4j.condition;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 class ChessBoardTest {
@@ -35,6 +41,20 @@ class ChessBoardTest {
         int result = ChessBoard.rookWay(x1, y1, x2, y2);
         int expected = 0;
         assertThat(result).isEqualTo(expected);
+    }
+
+    static Stream<Arguments> rookWayData() {
+        return Stream.of(
+                Arguments.of(0, 0, 0, 6, 6),
+                Arguments.of(0, 0, 5, 0, 5),
+                Arguments.of(0, 0, 5, 6, 0)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("rookWayData")
+    void whenRookMovesThenReturnDistance(int x1, int y1, int x2, int y2, int expected) {
+        assertThat(ChessBoard.rookWay(x1, y1, x2, y2)).isEqualTo(expected);
     }
 
     @Test
@@ -156,5 +176,27 @@ class ChessBoardTest {
         int result = ChessBoard.elephantWay(x1, y1, x2, y2);
         int expected = 0;
         assertThat(result).isEqualTo(expected);
+    }
+
+    static Stream<Arguments> elephantWayData() {
+        return Stream.of(
+                Arguments.of(6, 7, 1, 2, 5),
+                Arguments.of(7, 0, 0, 7, 7),
+                Arguments.of(2, 6, 4, 1, 0),
+                Arguments.of(-1, 6, 4, 1, 0),
+                Arguments.of(2, -1, 4, 1, 0),
+                Arguments.of(2, 6, -1, 1, 0),
+                Arguments.of(2, 6, 4, -1, 0),
+                Arguments.of(10, 6, 4, 1, 0),
+                Arguments.of(2, 10, 4, 1, 0),
+                Arguments.of(2, 6, 10, 1, 0),
+                Arguments.of(2, 6, 4, 10, 0)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("elephantWayData")
+    void whenElephantMovesThenReturnDistance(int x1, int y1, int x2, int y2, int expected) {
+        assertThat(ChessBoard.elephantWay(x1, y1, x2, y2)).isEqualTo(expected);
     }
 }
