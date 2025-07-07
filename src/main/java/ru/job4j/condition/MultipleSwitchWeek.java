@@ -1,7 +1,19 @@
 package ru.job4j.condition;
 
 public class MultipleSwitchWeek {
+
+    /**
+     * Возвращает номер дня недели по названию.
+     *
+     * @param name Название дня (на русском или английском).
+     * @return Номер дня от 1 (понедельник) до 7 (воскресенье), либо -1 если не найден.
+     * @throws IllegalArgumentException если name == null
+     */
+
     public static int numberOfDay(String name) {
+        if (name == null) {
+            throw new IllegalArgumentException("Day name must not be null");
+        }
         return switch (name) {
             case "Понедельник", "Monday" -> 1;
             case "Вторник", "Tuesday" -> 2;
