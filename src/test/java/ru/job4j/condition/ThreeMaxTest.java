@@ -1,6 +1,12 @@
 package ru.job4j.condition;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 class ThreeMaxTest {
@@ -72,5 +78,23 @@ class ThreeMaxTest {
         int result = ThreeMax.max(first, second, third);
         int expected = 100;
         assertThat(result).isEqualTo(expected);
+    }
+
+    @ParameterizedTest
+    @MethodSource("threeMaxData")
+    void checkMaxedNumber(int first, int second, int third, int max) {
+        assertThat(ThreeMax.max(first, second, third)).isEqualTo(max);
+    }
+
+    static Stream<Arguments> threeMaxData() {
+        return Stream.of(
+                Arguments.of(10, 5, 1, 10),
+                Arguments.of(10, 50, 1, 50),
+                Arguments.of(1, 5, 100, 100),
+                Arguments.of(1, 1, 1, 1),
+                Arguments.of(10, 10, 1, 10),
+                Arguments.of(100, 1, 100, 100),
+                Arguments.of(1, 100, 100, 100)
+        );
     }
 }
