@@ -77,4 +77,13 @@ class CounterTest {
         int expected = 18;
         assertThat(result).isEqualTo(expected);
     }
+
+    @Test
+    void whenSumEvenNumbersFromZeroToNineThenEighteen() {
+        int start = 0;
+        int finish = 9;
+        int result = Counter.sumByEven(start, finish);
+        int expected = 20;
+        assertThat(result).isEqualTo(expected);
+    }
 }
