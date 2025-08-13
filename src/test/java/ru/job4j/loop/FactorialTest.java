@@ -2,6 +2,7 @@ package ru.job4j.loop;
 
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class FactorialTest {
     @Test
@@ -34,5 +35,13 @@ class FactorialTest {
         int n = 0;
         int out = Factorial.calc(n);
         assertThat(out).isEqualTo(expected);
+    }
+
+    @Test
+    void whenCalculateFactorialWithNegativeNumberThenThrowException() {
+        int negativeNumber = -1;
+        assertThatThrownBy(() -> Factorial.calc(negativeNumber))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("" + negativeNumber);
     }
 }
