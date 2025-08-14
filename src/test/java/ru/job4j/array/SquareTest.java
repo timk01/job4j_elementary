@@ -20,4 +20,12 @@ class SquareTest {
         int[] expected = new int[] {0, 1, 4, 9, 16};
         assertThat(result).containsExactly(expected);
     }
+
+    @Test
+    void whenBound4Then0And1And4And9() {
+        int bound = 4;
+        int[] result = Square.calculate(bound);
+        int[] expected = new int[] {0, 1, 4, 9};
+        assertThat(result).containsExactly(expected);
+    }
 }
