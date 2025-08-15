@@ -64,6 +64,17 @@ class FindLoopTest {
     }
 
     @Test
+    public void whenDiapasonHasSomeEqualElementThenReturnFirstFound() {
+        int[] data = new int[] {5, 10, 2, 4, 8, 10, 14, 4, 3, 21, 16};
+        int el = 10;
+        int start = 1;
+        int finish = 7;
+        int result = FindLoop.indexInRange(data, el, start, finish);
+        int expected = 1;
+        assertThat(result).isEqualTo(expected);
+    }
+
+    @Test
     public void whenDiapasonHas2Then3() {
         int[] data = new int[] {5, 2, 10, 2, 4};
         int el = 2;
@@ -80,6 +91,17 @@ class FindLoopTest {
         int el = 8;
         int start = 0;
         int finish = 10;
+        int result = FindLoop.indexInRange(data, el, start, finish);
+        int expected = -1;
+        assertThat(result).isEqualTo(expected);
+    }
+
+    @Test
+    public void whenWholeDiapasonHasNoNumberAtAll() {
+        int[] data = {1, 2, 3, 5, 6, 9, -1};
+        int el = 10;
+        int start = 0;
+        int finish = data.length - 1;
         int result = FindLoop.indexInRange(data, el, start, finish);
         int expected = -1;
         assertThat(result).isEqualTo(expected);
