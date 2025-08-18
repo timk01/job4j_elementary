@@ -136,7 +136,6 @@ class LogicNotTest {
         assertThat(result).isFalse();
     }
 
-
     private static Stream<Arguments> isEvenData() {
         return Stream.of(
                 Arguments.of(2, true),
