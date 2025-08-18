@@ -1,6 +1,12 @@
 package ru.job4j.array;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class MatrixTest {
@@ -27,5 +33,39 @@ public class MatrixTest {
                 {5, 10, 15, 20, 25}
         };
         assertThat(result).isDeepEqualTo(expected);
+    }
+
+    @ParameterizedTest
+    @MethodSource("matrixProvider")
+    void whenMatrixMultipleThenCorrect(int size, int[][] expected) {
+        int[][] result = Matrix.multiple(size);
+        assertThat(result).isDeepEqualTo(expected);
+    }
+
+    private static Stream<Arguments> matrixProvider() {
+        return Stream.of(
+                Arguments.of(2, new int[][]{
+                        {1, 2},
+                        {2, 4}
+                }),
+                Arguments.of(5, new int[][]{
+                        {1, 2, 3, 4, 5},
+                        {2, 4, 6, 8, 10},
+                        {3, 6, 9, 12, 15},
+                        {4, 8, 12, 16, 20},
+                        {5, 10, 15, 20, 25}
+                }),
+                Arguments.of(9, new int[][]{
+                        {1, 2, 3, 4, 5, 6, 7, 8, 9},
+                        {2, 4, 6, 8, 10, 12, 14, 16, 18},
+                        {3, 6, 9, 12, 15, 18, 21, 24, 27},
+                        {4, 8, 12, 16, 20, 24, 28, 32, 36},
+                        {5, 10, 15, 20, 25, 30, 35, 40, 45},
+                        {6, 12, 18, 24, 30, 36, 42, 48, 54},
+                        {7, 14, 21, 28, 35, 42, 49, 56, 63},
+                        {8, 16, 24, 32, 40, 48, 56, 64, 72},
+                        {9, 18, 27, 36, 45, 54, 63, 72, 81}
+                })
+        );
     }
 }
