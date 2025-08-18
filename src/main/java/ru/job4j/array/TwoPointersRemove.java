@@ -2,6 +2,12 @@ package ru.job4j.array;
 
 /**
  * https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
+ * работает СТРОГО с отсортированным массивом: Arrays.sort(a); (и после - стандартный поиск дубликатов)
+ * ЛИБО сунуть в сет (если порядок не важен сразу) и после set.stream().mapToInt(Integer::intValue).toArray()
+ * ЛИБО LinkedHashSet (порядок вставки, н не сорт) или TreeSet (тут и порядок вставки, и сорт)
+ * Если нужен массив без дублей:
+ * int len = removeDuplicatesSorted(a);
+ * int[] unique = java.util.Arrays.copyOf(a, len); // [1,2,3,4,5]
  */
 
 public class TwoPointersRemove {

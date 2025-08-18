@@ -49,4 +49,5 @@ class TwoNumberSumTest {
         int[] expected = {1, 5};
         assertThat(result).isEqualTo(expected);
     }
+
 }
