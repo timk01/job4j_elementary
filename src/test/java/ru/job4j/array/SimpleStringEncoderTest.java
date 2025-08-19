@@ -6,6 +6,29 @@ import static org.assertj.core.api.Assertions.*;
 
 class SimpleStringEncoderTest {
     @Test
+    void whenOnlyOne() {
+        String input = "a";
+        String expected = "a";
+        String result = SimpleStringEncoder.encode(input);
+        assertThat(result).isEqualTo(expected);
+    }
+
+    @Test
+    void whenAAndB() {
+        String input = "ab";
+        String expected = "ab";
+        String result = SimpleStringEncoder.encode(input);
+        assertThat(result).isEqualTo(expected);
+    }
+
+    @Test
+    void whenDoubleA() {
+        String input = "aa";
+        String expected = "a2";
+        String result = SimpleStringEncoder.encode(input);
+        assertThat(result).isEqualTo(expected);
+    }
+    @Test
     void whenStringaaabbcThenResulta3b2c() {
         String input = "aaabbc";
         String expected = "a3b2c";
