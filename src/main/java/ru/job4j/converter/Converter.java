@@ -10,6 +10,19 @@ public class Converter {
         return value / 60;
     }
 
+    public static double roundedTill2DigitsRubleToEuro(double value) {
+        int divisor = 70;
+        return Math.round(value * 100.0 / divisor) / 100.0;
+    }
+
+    public static double preciseRubleToEuro(double value) {
+        int divisor = 70;
+        long totalCent = Math.round(value * 100.0 / divisor);
+        long euro = totalCent / 100;
+        long cents = totalCent % 100;
+        return euro + cents / 100.0;
+    }
+
     public static void main(String[] args) {
         float in = 140;
         float expected = 2;
