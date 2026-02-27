@@ -58,17 +58,17 @@ class ReverseStringArrTest {
 
     @Test
     void whenThirdReverse() {
-        String in = "“имур";
+        String in = "Timur ";
         String result = reverse(in);
-        String expected = "риму“";
+        String expected = " rumiT";
         assertThat(result).isEqualTo(expected);
     }
 
     @Test
     void whenTwoPointersThirdReverse() {
-        String in = "“имур";
+        String in = "Somt1";
         String result = twoPointersReverse(in);
-        String expected = "риму“";
+        String expected = "1tmoS";
         assertThat(result).isEqualTo(expected);
     }
 

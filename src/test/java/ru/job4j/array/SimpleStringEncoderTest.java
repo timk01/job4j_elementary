@@ -28,6 +28,7 @@ class SimpleStringEncoderTest {
         String result = SimpleStringEncoder.encode(input);
         assertThat(result).isEqualTo(expected);
     }
+
     @Test
     void whenStringaaabbcThenResulta3b2c() {
         String input = "aaabbc";
