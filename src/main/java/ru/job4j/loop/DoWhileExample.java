@@ -9,12 +9,13 @@ public class DoWhileExample {
         int password = 0;
         do {
             System.out.println("Введите пароль: ");
-            if (!scanner.hasNextInt()) {
+            String input = scanner.nextLine().trim();
+
+            try {
+                password = Integer.parseInt(input);
+            } catch (NumberFormatException e) {
                 System.out.println("Ошибка: введите число!");
-                scanner.next();
-                continue;
             }
-            password = scanner.nextInt();
         } while (password != 555);
         System.out.println("Пароль введён успешно!");
     }
