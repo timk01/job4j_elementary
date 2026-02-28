@@ -12,7 +12,7 @@ public class SortSelectedOriginalAlgorithm {
                     minIndex = j;
                 }
             }
-            if (data[i] != min) {
+            if (minIndex != i) {
                 int temp = data[i];
                 data[i] = min;
                 data[minIndex] = temp;
